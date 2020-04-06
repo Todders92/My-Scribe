@@ -3,8 +3,25 @@
 }
 
 <div class="text-center">
-    <h1 class="display-4">Welcome</h1>
-    <p>Learn about <a href="https://docs.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
-    <p>@Html.ActionLink("Create an account", "Index", "Account")</p>
-    <button class="btn btn-info">Please</button>
+@if(User.Identity.IsAuthenticated)
+  {
+  <h1 class="display-4">Welcome Back to MyScribe</h1>
+  }
+  else
+  {
+  <h1 class="display-4">Welcome to MyScribe</h1>
+  }
+<hr>
+  <p>MyScribe is a location to organize your throught/ notes/ ideas/ recources. Create ScriBoards of topics, and create Scribes relating to those topics within the ScriBoards. Enjoy Scribing!</p>
+  @if(User.Identity.IsAuthenticated)
+  {
+    @* <p>Enjoy Scribing!</p> *@
+    <hr>
+    <p>@Html.ActionLink("My ScriBoards", "Index", "Boards", null, new {@class="btn btn-info"})</p>
+  }
+  else
+  {
+    <hr>
+  <p>@Html.ActionLink("Get Started", "Index", "Account", null, new {@class="btn btn-info"})</p>
+  }
 </div>
