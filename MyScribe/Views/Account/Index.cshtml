@@ -1,9 +1,13 @@
-@* <div class="text-center"> *@
+@* <div class="text-center"> 
 @{
   Layout = "_Layout";
 }
+*@
 
+@using MyScribe.Models;
+@model List<MyScribe.Models.Board>;
 @using System.Security.Claims
+
 <h1>Account Set up</h1>
 @if(User.Identity.IsAuthenticated)
 {
@@ -14,13 +18,12 @@ else
   <p>Please sign in or create an account</p>
 }
 
-<div class="box">
-@* <button class="btn btn-info"> *@
-@Html.ActionLink("Please", "Register", null, new { @class = "btn btn-info"})
-@* </button> *@
-<br>
-@* <a href="here" class="btn btn-info"></a> *@
 
-@Html.ActionLink("Log In", "LogIn", null, new { @class = "btn btn-warning"}) 
-@* </div> *@
-</div>
+@* @foreach (Board boards in Model)
+{
+  <li>@Html.ActionLink($"{boards.Name}", "Details", new { id = boards.BoardId })</li>
+} *@
+
+@* @Html.ActionLink("Please", "Register", null, null, new { @class = "btn btn-info"}) *@
+
+@* @Html.ActionLink("Log In", "LogIn", null, null, new { @class = "btn btn-warning"})  *@
