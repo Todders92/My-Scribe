@@ -18,7 +18,7 @@ namespace MyScribe.Controllers
 
     public ActionResult Index()
     {
-      List<Post> model = _db.Posts.Include(posts => posts.Board).ToList();
+      List<Post> model = _db.Posts.Include(posts => posts.BoardId).ToList();
       return View(model);
     }
 
