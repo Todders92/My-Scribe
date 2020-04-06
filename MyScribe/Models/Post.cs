@@ -9,5 +9,6 @@ namespace MyScribe.Models
     public string Description { get; set; }
     public string ImageSource { get; set; }
     public string Links { get; set; }
+    public virtual Board Board { get; set; }
   }
 }
