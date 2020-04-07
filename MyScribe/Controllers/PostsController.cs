@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.Linq;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.AspNetCore.Mvc.Rendering;
+using System;
 
 namespace MyScribe.Controllers
 {
@@ -48,7 +49,7 @@ namespace MyScribe.Controllers
     {
       _db.Entry(post).State = EntityState.Modified;
       _db.SaveChanges();
-      return RedirectToAction("Details", null, new {id = post.BoardId});
+      return RedirectToAction("Details", null, new {id = post.PostId});
     }
 
     public ActionResult Delete(int id)
@@ -60,10 +61,12 @@ namespace MyScribe.Controllers
     [HttpPost, ActionName("Delete")]
     public ActionResult DeleteConfirmed(int id)
     {
-      var thisPost = _db.Posts.FirstOrDefault(posts => posts.PostId == id);
+      Console.WriteLine("id is:" + id);
+      Post thisPost = _db.Posts.FirstOrDefault(posts => posts.PostId == id);
+      Console.WriteLine("name of post:" + thisPost.Title);
       _db.Posts.Remove(thisPost);
       _db.SaveChanges();
-      return RedirectToAction("Index");
+      return RedirectToAction("Details", "Boards", new {id = thisPost.BoardId});
     }
   }
 }
