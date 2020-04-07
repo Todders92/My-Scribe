@@ -16,34 +16,16 @@ namespace MyScribe.Controllers
       _db = db;
     }
 
-    // public ActionResult Index()
-    // {
-    //   List<Post> model = _db.Posts.Include(posts => posts.BoardId).ToList();
-    //   return View(model);
-    // }
-
     public ActionResult Create(int id)
     {
       Board boardOfPost = _db.Boards.FirstOrDefault(board => board.BoardId == id);
       ViewBag.Board = boardOfPost;
       return View();
     }
-    // public ActionResult Create(int boardId) //garbage trash that was trying to do the above
-    // {
-    //   ViewBag.boardId = boardId;
-    //   return View();
-    // }
-
+    
     [HttpPost]
     public ActionResult Create(int boardId, Post post)
     {
-      // post.BoardId = boardId; //where we had tried to pass it in before
-      // post.BoardId = boardId; //where we had tried to pass it in before
-      // post.BoardId = boardId; //where we had tried to pass it in before
-      // post.BoardId = boardId; //where we had tried to pass it in before
-      // post.BoardId = boardId; //where we had tried to pass it in before
-      // post.BoardId = boardId; //where we had tried to pass it in before
-      // post.BoardId = boardId; //where we had tried to pass it in before
       _db.Posts.Add(post);
       _db.SaveChanges();
       return RedirectToAction("Details", "Boards", new {id = boardId});
@@ -58,7 +40,6 @@ namespace MyScribe.Controllers
     public ActionResult Edit(int id)
     {
       var thisPost = _db.Posts.FirstOrDefault(posts => posts.PostId == id);
-      ViewBag.BoardId = new SelectList(_db.Boards, "BoardId", "Name");
       return View(thisPost);
     }
 
@@ -67,7 +48,7 @@ namespace MyScribe.Controllers
     {
       _db.Entry(post).State = EntityState.Modified;
       _db.SaveChanges();
-      return RedirectToAction("Index");
+      return RedirectToAction("Details", null, new {id = post.BoardId});
     }
 
     public ActionResult Delete(int id)
