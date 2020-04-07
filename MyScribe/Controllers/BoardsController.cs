@@ -3,22 +3,31 @@ using MyScribe.Models;
 using System.Collections.Generic;
 using System.Linq;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Identity;
+using System.Threading.Tasks;
+using System.Security.Claims;
 
 namespace MyScribe.Controllers
 {
+  [Authorize]
   public class BoardsController : Controller
   {
     private readonly MyScribeContext _db;
+    private readonly UserManager<ApplicationUser> _userManager;
 
-    public BoardsController(MyScribeContext db)
+    public BoardsController(MyScribeContext db, UserManager<ApplicationUser> userManager)
     {
       _db = db;
+      _userManager = userManager;
     }
 
-    public ActionResult Index()
+    public async Task<ActionResult> Index()
     {
-      List<Board> model = _db.Boards.ToList();
-      return View(model);
+      var userId = this.User.FindFirst(ClaimTypes.NameIdentifier)?.Value;
+      var currentUser = await _userManager.FindByIdAsync(userId);
+      var userBoards = _db.Boards.Where(board => board.User.Id == currentUser.Id);
+      return View(userBoards);
     }
 
     public ActionResult Create()
@@ -27,8 +36,11 @@ namespace MyScribe.Controllers
     }
 
     [HttpPost]
-    public ActionResult Create(Board board)
+    public async Task<ActionResult> Create(Board board)
     {
+      var userId = this.User.FindFirst(ClaimTypes.NameIdentifier)?.Value;
+      var currentUser = await _userManager.FindByIdAsync(userId);
+      board.User = currentUser;
       _db.Boards.Add(board);
       _db.SaveChanges();
       return RedirectToAction("Index");
