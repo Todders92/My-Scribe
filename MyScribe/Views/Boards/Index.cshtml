@@ -2,21 +2,25 @@
   Layout = "_Layout";
 }
 
-@using MyScribe.Models;
-@model List<MyScribe.Models.Board>;
+@using MyScribe.Models
+@using System.Security.Claims
+@model IEnumerable<MyScribe.Models.Board>
 
 <h1>Boards</h1>
 
-@if (@Model.Count == 0)
+@if (@Model.Any())
 {
-  <h3>No boards have been added yet!</h3>
+  @foreach (Board boards in Model)
+  {
+    <p>@Html.ActionLink($"{boards.Name}", "Details", null, new { id = boards.BoardId }, new {@class="btn btn-dark"})</p>
+  }
 } 
-
-@foreach (Board boards in Model)
+else
 {
-  <li>@Html.ActionLink($"{boards.Name}", "Details", new { id = boards.BoardId })</li>
+  <h3>You have no ScriBoards!</h3>
 }
+<hr>
 
-<p>@Html.ActionLink("Add a new board", "Create", null, null, new {@class = "btn btn-info"})</p>
+@Html.ActionLink("Add a new board", "Create", null, null, new {@class = "btn btn-info"})
 
-<p>@Html.ActionLink("Home", "Index", "Home", null, new {@class = "btn btn-info"})</p>
+@* @Html.ActionLink("Home", "Index", "Home", null, new {@class = "btn btn-info"}) *@

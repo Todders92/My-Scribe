@@ -11,19 +11,19 @@
 <h1>Account Set up</h1>
 @if(User.Identity.IsAuthenticated)
 {
+
   <p>Hello @User.Identity.Name!</p>
+  @using (Html.BeginForm("LogOff", "Account"))
+  {
+    <input type="submit" class="btn btn-dark" value="Log out" />
+  }
 }
 else
 {
   <p>Please sign in or create an account</p>
+
+  @Html.ActionLink("Register", "Register", null, null, new { @class = "btn btn-info"}) 
+
+  @Html.ActionLink("Log In", "LogIn", null, null, new { @class = "btn btn-warning"}) 
 }
 
-
-@* @foreach (Board boards in Model)
-{
-  <li>@Html.ActionLink($"{boards.Name}", "Details", new { id = boards.BoardId })</li>
-} *@
-
-@* @Html.ActionLink("Please", "Register", null, null, new { @class = "btn btn-info"}) *@
-
-@* @Html.ActionLink("Log In", "LogIn", null, null, new { @class = "btn btn-warning"})  *@
