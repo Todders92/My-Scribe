@@ -1,0 +1,26 @@
+@{
+  Layout = "_Layout";
+}
+
+@model MyScribe.Models.Board
+
+<h2>Edit</h2>
+
+<h4>Edit this Board: @Html.DisplayFor(model => model.Name)</h4>
+
+@using (Html.BeginForm())
+{
+    @Html.HiddenFor(model => model.BoardId)
+
+    @Html.LabelFor(model => model.Name)
+    @Html.EditorFor(model => model.Name)
+
+    @Html.LabelFor(model => model.Description)
+    @Html.EditorFor(model => model.Description)
+
+    @Html.LabelFor(model => model.BannerImage)
+    @Html.EditorFor(model => model.BannerImage)
+
+    <input type="submit" value="Save" />
+}
+<p>@Html.ActionLink("Back to boards", "Index")</p>
