@@ -24,16 +24,22 @@ namespace MyScribe.Controllers
 
     public ActionResult Create()
     {
+      
       return View();
     }
+    // public ActionResult Create(int boardId)
+    // {
+    //   ViewBag.boardId = boardId;
+    //   return View();
+    // }
 
     [HttpPost]
     public ActionResult Create(int boardId,Post post)
     {
-      post.BoardId = boardId
+      post.BoardId = boardId;
       _db.Posts.Add(post);
       _db.SaveChanges();
-      return RedirectToAction("Index");
+      return RedirectToAction("Details", "Boards", new {id = boardId});
     }
 
     public ActionResult Details(int id)

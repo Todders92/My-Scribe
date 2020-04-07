@@ -1,3 +1,33 @@
 <img src="@Model.BannerImage" alt="Banner" class="banner--img">
 
-<h1>Hello Darkness</h1>
+<h1>@Model.Name</h1>
+<h2>@Model.Description</h2>
+<hr>
+@* ViewBag= @ViewBag.Posts.Count  *@
+PostCount= @Model.Posts.Count 
+@* @if(ViewBag.Posts == null) *@
+@if(Model.Posts.Count == 0)
+{
+  <p>Theres currently no scribes in @Model.Name</p>
+}
+else
+{
+  <div class="row">
+  <p>outside of for each</p>
+    @foreach(Post post in Model.Posts)
+    {
+  <p>inside of for each</p>
+      <div class="col-md-3">
+        <div class="card">
+          <h3>@post.Title</h3>
+        </div>
+      </div>
+      <hr>
+    }
+  </div>
+}
+
+@* @Html.ActionLink("Add Scribe", "Create", "Posts", new {boardId = Model.BoardId}, new {@class="btn btn-success"}) *@
+@Html.ActionLink("Add Scribe", "Create", "Posts", null, new {@class="btn btn-success"})
+@Html.ActionLink("Edit", "Edit", new {id = Model.BoardId}, new {@class="btn btn-info"})
+@Html.ActionLink("Delete this Board", "Delete", new {id = Model.BoardId}, new {@class="btn btn-danger"})

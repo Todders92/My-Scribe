@@ -7,6 +7,7 @@ using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Identity;
 using System.Threading.Tasks;
 using System.Security.Claims;
+using System;
 
 namespace MyScribe.Controllers
 {
@@ -49,7 +50,8 @@ namespace MyScribe.Controllers
     public ActionResult Details(int id)
     {
       Board thisBoard = _db.Boards.FirstOrDefault(board => board.BoardId == id);
-      ViewBag.Posts = this.Boards.Posts;
+      // ViewBag.Posts = thisBoard.Posts.ToList();
+      Console.WriteLine("count of posts:" + thisBoard.Posts.Count);
       return View(thisBoard);
     }
 

@@ -1,0 +1,28 @@
+@model MyScribe.Models.Post
+<p>note- imgs/links/bodies are all optional<p>
+<div class="row">
+  <div class="col-md-6 offset-md-3">
+    <h1 class="text-center">Create a new Scribe</h1>
+    @using (Html.BeginForm())
+    {
+      @* <input type="hidden" name="boardId" value="@ViewBag.boardId"> *@
+      <div class="form-group">
+        <p>Title</p>
+        @Html.TextBoxFor(model => model.Title, new {@class="form-control"})
+      </div>
+      <div class="form-group">
+        <p>Text Body</p>
+        @Html.TextBoxFor(model => model.Body, new {@class="form-control required"})
+      </div>
+      <div class="form-group">
+        <p>Image (user image address)</p>
+        @Html.TextBoxFor(model => model.ImageSource, new {@class="form-control"})
+      </div>
+      <div class="form-group">
+        <p>Link</p>
+        @Html.TextBoxFor(model => model.Link, new {@class="form-control"})
+      </div>
+      <button type="submit" class="btn btn-info btn-block"> Add Scribe </button>
+    }
+  </div>
+</div>
