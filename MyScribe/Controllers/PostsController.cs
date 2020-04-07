@@ -22,21 +22,28 @@ namespace MyScribe.Controllers
     //   return View(model);
     // }
 
-    public ActionResult Create()
+    public ActionResult Create(int id)
     {
-      
+      Board boardOfPost = _db.Boards.FirstOrDefault(board => board.BoardId == id);
+      ViewBag.Board = boardOfPost;
       return View();
     }
-    // public ActionResult Create(int boardId)
+    // public ActionResult Create(int boardId) //garbage trash that was trying to do the above
     // {
     //   ViewBag.boardId = boardId;
     //   return View();
     // }
 
     [HttpPost]
-    public ActionResult Create(int boardId,Post post)
+    public ActionResult Create(int boardId, Post post)
     {
-      post.BoardId = boardId;
+      // post.BoardId = boardId; //where we had tried to pass it in before
+      // post.BoardId = boardId; //where we had tried to pass it in before
+      // post.BoardId = boardId; //where we had tried to pass it in before
+      // post.BoardId = boardId; //where we had tried to pass it in before
+      // post.BoardId = boardId; //where we had tried to pass it in before
+      // post.BoardId = boardId; //where we had tried to pass it in before
+      // post.BoardId = boardId; //where we had tried to pass it in before
       _db.Posts.Add(post);
       _db.SaveChanges();
       return RedirectToAction("Details", "Boards", new {id = boardId});

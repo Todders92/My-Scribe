@@ -28,6 +28,6 @@ else
 }
 
 @* @Html.ActionLink("Add Scribe", "Create", "Posts", new {boardId = Model.BoardId}, new {@class="btn btn-success"}) *@
-@Html.ActionLink("Add Scribe", "Create", "Posts", null, new {@class="btn btn-success"})
+@Html.ActionLink("Add Scribe", "Create", "Posts", new {id = Model.BoardId}, new {@class="btn btn-success"})
 @Html.ActionLink("Edit", "Edit", new {id = Model.BoardId}, new {@class="btn btn-info"})
 @Html.ActionLink("Delete this Board", "Delete", new {id = Model.BoardId}, new {@class="btn btn-danger"})
