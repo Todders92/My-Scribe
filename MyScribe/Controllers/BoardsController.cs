@@ -49,6 +49,7 @@ namespace MyScribe.Controllers
     public ActionResult Details(int id)
     {
       Board thisBoard = _db.Boards.FirstOrDefault(board => board.BoardId == id);
+      ViewBag.Posts = this.Boards.Posts;
       return View(thisBoard);
     }
 
