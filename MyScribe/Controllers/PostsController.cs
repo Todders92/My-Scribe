@@ -16,11 +16,11 @@ namespace MyScribe.Controllers
       _db = db;
     }
 
-    public ActionResult Index()
-    {
-      List<Post> model = _db.Posts.Include(posts => posts.BoardId).ToList();
-      return View(model);
-    }
+    // public ActionResult Index()
+    // {
+    //   List<Post> model = _db.Posts.Include(posts => posts.BoardId).ToList();
+    //   return View(model);
+    // }
 
     public ActionResult Create()
     {
@@ -28,8 +28,9 @@ namespace MyScribe.Controllers
     }
 
     [HttpPost]
-    public ActionResult Create(int BoardId,Post post)
+    public ActionResult Create(int boardId,Post post)
     {
+      post.BoardId = boardId
       _db.Posts.Add(post);
       _db.SaveChanges();
       return RedirectToAction("Index");
