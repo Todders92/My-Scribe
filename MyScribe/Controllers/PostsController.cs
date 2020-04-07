@@ -24,12 +24,11 @@ namespace MyScribe.Controllers
 
     public ActionResult Create()
     {
-      ViewBag.BoardId = new SelectList(_db.Boards, "BoardId", "Name");
       return View();
     }
 
     [HttpPost]
-    public ActionResult Create(Post post)
+    public ActionResult Create(int BoardId,Post post)
     {
       _db.Posts.Add(post);
       _db.SaveChanges();
