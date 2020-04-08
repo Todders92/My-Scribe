@@ -6,13 +6,13 @@ using MyScribe.ViewModels;
 
 namespace MyScribe.Controllers
 {
-  public class AccountController : Controller
+  public class AccountsController : Controller
   {
     private readonly MyScribeContext _db;
     private readonly UserManager<ApplicationUser> _userManager;
     private readonly SignInManager<ApplicationUser> _signInManager;
 
-    public AccountController(UserManager<ApplicationUser> userManager, SignInManager<ApplicationUser> signInManager, MyScribeContext db)
+    public AccountsController(UserManager<ApplicationUser> userManager, SignInManager<ApplicationUser> signInManager, MyScribeContext db)
     {
       _userManager = userManager;
       _signInManager = signInManager;
