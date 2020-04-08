@@ -1,42 +1,96 @@
 ﻿<!DOCTYPE html>
 <html>
-  <head>
-    <meta charset="utf-8">
-    <title>My Scribe</title>
-    <link rel='stylesheet' href='https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css'>
-    <link rel="stylesheet" href="~/css/styles.css">
-  </head>
-  
-  <body>
-  <header>
-      <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light bg-white border-bottom box-shadow mb-3">
-        <div class="container">
-            <a class="navbar-brand" asp-area="" asp-controller="Home" asp-action="Index">CatBoardInterface</a>
-            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target=".navbar-collapse" aria-controls="navbarSupportedContent"
-                aria-expanded="false" aria-label="Toggle navigation">
-              <span class="navbar-toggler-icon"></span>
-            </button>
-            <div class="navbar-collapse collapse d-sm-inline-flex flex-sm-row-reverse">
-              <ul class="navbar-nav flex-grow-1">
-                <li class="nav-item">
-                  <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Index">Home</a>
-                </li>
-                <li class="nav-item">
-                  <a class="nav-link text-dark" asp-area="" asp-controller="Boards" asp-action="Index">Boards</a>
-                </li>
-                <li class="nav-item">
-                  <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
-                </li>
-                <li class="nav-item">
-                  <a class="nav-link text-dark" asp-area="" asp-controller="Account" asp-action="Index">My Account</a>
-                </li>
-              </ul>
-            </div>
-        </div>
-      </nav>
-    </header>
-    <div class="container text-center">
-      @RenderBody()
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>@ViewData["Title"] - MyScribe</title>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper/js/1.12.9/umd/popper.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+  <script src="https://use.fontawesome.com/releases/v5.0.8/js/all.js"></script>
+  <link href="./css/styles.css" rel="stylesheet">
+</head>
+<body>
+
+<!-- Navigation -->
+  <nav class="navbar navbar-expand-md navbar-light bg-light sticky-top">
+    <div class="container-fluid">
+      <a class="navbar-brand" asp-area="" asp-controller="Home" asp-action="Index"><img class="logo" src="./img/logo.png"></a>
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarResponsive">
+        <ul class="navbar-nav ml-auto">
+          <li class="nav-item">
+            <a class="nav-link" asp-area="" asp-controller="Home" asp-action="Index">Home</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" asp-area="" asp-controller="Home" asp-action="Index">About</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" asp-area="" asp-controller="Boards" asp-action="Details">Boards</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" asp-area="" asp-controller="Posts" asp-action="Details">Posts</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" asp-area="" asp-controller="Account" asp-action="Index">Account</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
+          </li>
+          @if(User.Identity.IsAuthenticated)
+          {
+          <li class="nav-item">
+          <a class="nav-link" asp-area="" asp-controller="Home" asp-action="Index">Log Out</a>
+          </li>
+          }
+          else
+          {
+          <li class="nav-item">
+          <a class="nav-link" asp-area="" asp-controller="Account" asp-action="Login">Log In</a>
+          </li>
+          }
+        </ul>
+      </div>
     </div>
-  </body>
+  </nav>
+
+
+<div class="container text-center">
+  @RenderBody()
+</div>
+<!-- Footer -->
+  <footer>
+    <div class="container-fluid padding">
+      <div class="row text-center">
+        <div class="col-md-4">
+          <a class="navbar-brand" asp-area="" asp-controller="Home" asp-action="Index"><img src="./img/logo2.png"></a>
+          <hr class="light">
+          <p>(123) 456-7890</p>
+          <p>companyemail@email.com</p>
+          <p>123 Fake Street Ave.</p>
+          <p>Portland, OR 97654</p>
+        </div>
+        <div class="col-md-4">
+          <hr class="light">
+          <h5>Our Hours</h2>
+          <p>Monday-Friday: 9am-5pm</p>
+          <p>Saturday: Closed</p>
+          <p>Sunday: Closed</p>
+        </div>
+        <div class="col-md-4">
+          <hr class="light">
+          <h5>Be a part of the team!</h2>
+          <p>Careers</p>
+        </div>
+        <div class="col-12">
+          <hr class="light-100">
+          <h5>2020&copy; www.MyScribe.com</h5>
+        </div>
+      </div>
+    </div>
+  </footer>
+</body>
 </html>
