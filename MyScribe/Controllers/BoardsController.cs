@@ -51,7 +51,9 @@ namespace MyScribe.Controllers
     {
       Board thisBoard = _db.Boards.FirstOrDefault(board => board.BoardId == id);
       thisBoard.Posts = _db.Posts.Where(p => p.BoardId == id).ToList();
-      // ViewBag.Posts = thisBoard.Posts.ToList();
+      // var orderedPosts = _db.Posts.Where(p => p.BoardId == id).ToList().OrderedByDescending(post => post.Importance);
+      var orderedPosts = thisBoard.Posts.OrderByDescending(post => post.Pin);
+      ViewBag.Posts = orderedPosts.ToList();
       return View(thisBoard);
     }
 
