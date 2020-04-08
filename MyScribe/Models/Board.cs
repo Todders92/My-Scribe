@@ -11,6 +11,7 @@ namespace MyScribe.Models
     public string Name { get; set; }
     public string Description { get; set; }
     public string BannerImage { get; set; }
+    public string Color { get;set; }
     public ApplicationUser User { get; set; }
     public ICollection<Post> Posts {get;set;}
   }
