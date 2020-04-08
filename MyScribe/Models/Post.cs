@@ -8,7 +8,7 @@ namespace MyScribe.Models
     public string Body { get; set; }
     public string ImageSource { get; set; }
     public string Link { get; set; }
-    public int Importance { get; set; }
+    public bool Pin { get; set; }
     // public virtual Board Board { get; set; }
   }
 }
