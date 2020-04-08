@@ -62,11 +62,13 @@ html, body {
   border: 1px solid darkorange;
   color: darkorange
 }
-
-.jumbotron {
+/* ------------------------------------------ */
+/* .jumbotron {
   padding: 1rem;
   border-radius: 0;
-}
+  /* background: none;   */
+  /* opacity: .4; */
+/* } */ 
 
 .padding {
   padding-bottom: 2rem;
@@ -150,8 +152,31 @@ hr.light-100 {
   margin-top: .8rem;
   margin-bottom: 1rem;
 }
+/* Board Banner Centering ---------------------------------------------- */
 
-/*--- Media Queries --*/
+/* .banner--box {
+  width: 100%;
+  max-height: 20rem;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 2px solid blue;
+ }
+ 
+ .banner--img-box {
+   height: 500px;
+   width: 200%;
+   position: relative;
+ }
+ 
+ .banner--img {
+   margin: auto;
+   display: block;
+   width: 100%;
+ } */
+
+/*--- Media Queries ------------------------------------------------- --*/
 @media (max-width: 992px) {
   .social a{
     font-size: 4em;

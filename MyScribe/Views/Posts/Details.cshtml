@@ -1,6 +1,5 @@
 <h1>@Model.Title</h1>
 
-
 @if(Model.Body != null)
 {
   <p>@Model.Body</p>
@@ -13,7 +12,7 @@
 {
   <img src="@Model.ImageSource" alt="Scribe Image"/>
 }
-
+  
 @Html.ActionLink("Back to ScriBoard", "Details", "Boards", new {id = Model.BoardId}, new {@class="btn btn-info"})
 @Html.ActionLink("Edit", "Edit", null, new {id = Model.PostId}, new {@class="btn btn-info"})
 @Html.ActionLink("Delete this Post", "Delete", new {id = Model.PostId}, new {@class="btn btn-danger"})

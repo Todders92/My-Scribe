@@ -12,19 +12,25 @@
 {
     @Html.HiddenFor(model => model.BoardId)
 
-    @Html.LabelFor(model => model.Name)
-    @Html.EditorFor(model => model.Name)
-
-    @Html.LabelFor(model => model.Description)
-    @Html.EditorFor(model => model.Description)
-
-    @Html.LabelFor(model => model.BannerImage)
-    @Html.EditorFor(model => model.BannerImage)
+    <div class="form-group">
+      @Html.LabelFor(model => model.Name)
+      @Html.EditorFor(model => model.Name)
+    </div>
 
     <div class="form-group">
-        <label for="color">ScriBoard Color</label>
-        <input id="color" name="Color" type="color">
-      </div>
+      @Html.LabelFor(model => model.Description)
+      @Html.EditorFor(model => model.Description)
+    </div>
+
+    <div class="form-group">
+      @Html.LabelFor(model => model.BannerImage)
+      @Html.EditorFor(model => model.BannerImage)
+    </div>
+
+    <div class="form-group">
+      <label for="color">ScriBoard Color</label>
+      <input id="color" name="Color" type="color">
+    </div>
 
     <input type="submit" value="Save" />
 }
