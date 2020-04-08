@@ -3,9 +3,7 @@
 <h1>@Model.Name</h1>
 <h2>@Model.Description</h2>
 <hr>
-@* ViewBag= @ViewBag.Posts.Count  *@
-PostCount= @Model.Posts.Count 
-@* @if(ViewBag.Posts == null) *@
+
 @if(Model.Posts.Count == 0)
 {
   <p>Theres currently no scribes in @Model.Name</p>
@@ -13,13 +11,11 @@ PostCount= @Model.Posts.Count
 else
 {
   <div class="row">
-  <p>outside of for each</p>
     @foreach(Post post in Model.Posts)
     {
-  <p>inside of for each</p>
       <div class="col-md-3">
         <div class="card">
-          <h3>@post.Title</h3>
+          <h3>@Html.ActionLink($"{post.Title}", "Details", "Posts", new {id = post.PostId})</h3>
         </div>
       </div>
       <hr>
@@ -28,6 +24,6 @@ else
 }
 
 @* @Html.ActionLink("Add Scribe", "Create", "Posts", new {boardId = Model.BoardId}, new {@class="btn btn-success"}) *@
-@Html.ActionLink("Add Scribe", "Create", "Posts", null, new {@class="btn btn-success"})
+@Html.ActionLink("Add Scribe", "Create", "Posts", new {id = Model.BoardId}, new {@class="btn btn-success"})
 @Html.ActionLink("Edit", "Edit", new {id = Model.BoardId}, new {@class="btn btn-info"})
 @Html.ActionLink("Delete this Board", "Delete", new {id = Model.BoardId}, new {@class="btn btn-danger"})

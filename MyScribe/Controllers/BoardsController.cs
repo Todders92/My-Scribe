@@ -50,8 +50,8 @@ namespace MyScribe.Controllers
     public ActionResult Details(int id)
     {
       Board thisBoard = _db.Boards.FirstOrDefault(board => board.BoardId == id);
+      thisBoard.Posts = _db.Posts.Where(p => p.BoardId == id).ToList();
       // ViewBag.Posts = thisBoard.Posts.ToList();
-      Console.WriteLine("count of posts:" + thisBoard.Posts.Count);
       return View(thisBoard);
     }
 

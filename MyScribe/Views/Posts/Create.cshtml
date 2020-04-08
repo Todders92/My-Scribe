@@ -5,7 +5,7 @@
     <h1 class="text-center">Create a new Scribe</h1>
     @using (Html.BeginForm())
     {
-      @* <input type="hidden" name="boardId" value="@ViewBag.boardId"> *@
+      <input type="hidden" name="BoardId" value="@ViewBag.Board.BoardId"> //pass the the ID in here
       <div class="form-group">
         <p>Title</p>
         @Html.TextBoxFor(model => model.Title, new {@class="form-control"})

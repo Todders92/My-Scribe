@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.Linq;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.AspNetCore.Mvc.Rendering;
+using System;
 
 namespace MyScribe.Controllers
 {
@@ -16,27 +17,16 @@ namespace MyScribe.Controllers
       _db = db;
     }
 
-    // public ActionResult Index()
-    // {
-    //   List<Post> model = _db.Posts.Include(posts => posts.BoardId).ToList();
-    //   return View(model);
-    // }
-
-    public ActionResult Create()
+    public ActionResult Create(int id)
     {
-      
+      Board boardOfPost = _db.Boards.FirstOrDefault(board => board.BoardId == id);
+      ViewBag.Board = boardOfPost;
       return View();
     }
-    // public ActionResult Create(int boardId)
-    // {
-    //   ViewBag.boardId = boardId;
-    //   return View();
-    // }
-
+    
     [HttpPost]
-    public ActionResult Create(int boardId,Post post)
+    public ActionResult Create(int boardId, Post post)
     {
-      post.BoardId = boardId;
       _db.Posts.Add(post);
       _db.SaveChanges();
       return RedirectToAction("Details", "Boards", new {id = boardId});
@@ -51,7 +41,6 @@ namespace MyScribe.Controllers
     public ActionResult Edit(int id)
     {
       var thisPost = _db.Posts.FirstOrDefault(posts => posts.PostId == id);
-      ViewBag.BoardId = new SelectList(_db.Boards, "BoardId", "Name");
       return View(thisPost);
     }
 
@@ -60,7 +49,7 @@ namespace MyScribe.Controllers
     {
       _db.Entry(post).State = EntityState.Modified;
       _db.SaveChanges();
-      return RedirectToAction("Index");
+      return RedirectToAction("Details", null, new {id = post.PostId});
     }
 
     public ActionResult Delete(int id)
@@ -72,10 +61,12 @@ namespace MyScribe.Controllers
     [HttpPost, ActionName("Delete")]
     public ActionResult DeleteConfirmed(int id)
     {
-      var thisPost = _db.Posts.FirstOrDefault(posts => posts.PostId == id);
+      Console.WriteLine("id is:" + id);
+      Post thisPost = _db.Posts.FirstOrDefault(posts => posts.PostId == id);
+      Console.WriteLine("name of post:" + thisPost.Title);
       _db.Posts.Remove(thisPost);
       _db.SaveChanges();
-      return RedirectToAction("Index");
+      return RedirectToAction("Details", "Boards", new {id = thisPost.BoardId});
     }
   }
 }
