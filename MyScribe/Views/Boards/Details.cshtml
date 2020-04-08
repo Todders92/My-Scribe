@@ -1,3 +1,4 @@
+<div style="background-color: @Model.Color">
 <img src="@Model.BannerImage" alt="Banner" class="banner--img">
 
 <h1>@Model.Name</h1>
@@ -9,7 +10,7 @@
   <p>Theres currently no scribes in @Model.Name</p>
 }
 else
-{
+{ 
   <div class="row">
     @foreach(Post post in Model.Posts)
     {
@@ -22,6 +23,7 @@ else
     }
   </div>
 }
+<div>
 
 @* @Html.ActionLink("Add Scribe", "Create", "Posts", new {boardId = Model.BoardId}, new {@class="btn btn-success"}) *@
 @Html.ActionLink("Add Scribe", "Create", "Posts", new {id = Model.BoardId}, new {@class="btn btn-success"})

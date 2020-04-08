@@ -21,6 +21,11 @@
     @Html.LabelFor(model => model.BannerImage)
     @Html.EditorFor(model => model.BannerImage)
 
+    <div class="form-group">
+        <label for="color">ScriBoard Color</label>
+        <input id="color" name="Color" type="color">
+      </div>
+
     <input type="submit" value="Save" />
 }
 <p>@Html.ActionLink("Back to boards", "Index")</p>
