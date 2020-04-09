@@ -65,3 +65,7 @@ z-index:2;
 .delete-page {
   align-items: center;
 }
+
+img{
+  max-width: 80%;
+}
