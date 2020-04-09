@@ -23,9 +23,7 @@
   @foreach (Board boards in Model)
   {
     <div class="row">
-      <p>@Html.ActionLink($"{boards.Name}", "Details", null, new { id = boards.BoardId }, new {@class="btn btn-primary"})
-      @Html.ActionLink($"{boards.Description}", "Details", null, new { id = boards.BoardId })
-      </p>
+      <p>@Html.ActionLink($"{boards.Name}", "Details", null, new { id = boards.BoardId }, new {@class="btn btn-primary"}) <span style="display:block;text-overflow: ellipsis;width: 200px;overflow: hidden; white-space: nowrap;"> @Html.ActionLink($"{boards.Description}", "Details", null, new { id = boards.BoardId })</span></p>
     </div>
 
   }

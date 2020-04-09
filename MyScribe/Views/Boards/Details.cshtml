@@ -5,10 +5,10 @@
     </div>
   </div>
   <h2>
-  @Model.Name
-  <small class="text-muted">@Model.Description</small>
-  <hr>
-</h2>
+    @Model.Name:
+    <small class="text-muted">@Model.Description</small>
+    <hr>
+  </h2>
 
 
   @if(Model.Posts.Count == 0)
@@ -27,7 +27,7 @@
               <img class="card-img-top img-fluid" src="@post.ImageSource" alt="Card image cap">
               <div class="card-block">
                 <h3 class="card-title">@Html.ActionLink($"{post.Title}", "Details", "Posts", new {id = post.PostId})</h3>
-                <p class="card-text">@post.Body</p>
+                <p class="card-text"><span style="display:block;text-overflow: ellipsis;width: 230px;overflow: hidden; white-space: nowrap;">@post.Body</span></p>
               </div>
             </div>
           </div>

@@ -14,9 +14,9 @@
         <img src="./img/carousel_img1.jpeg">
         <div class="carousel-caption">
           <h1 class="display-2">MyScribe</h1>
-          <h3>Your new favorite message board!</h3>
-          @* <button type="button" id="login" class=" btn btn-outline-light btn-lg">LOG IN</button> 
-          <button type="button" class="btn btn-primary btn-lg">REGISTER</button>  *@
+          <h3>Your new favorite content organizer!</h3>
+          <a class="nav-link" asp-area="" asp-controller="Account" asp-action="Login"><button type="button" id="login" class="btn btn-outline-light btn-lg">LOG IN</button></a> 
+          <a class="nav-link" asp-area="" asp-controller="Account" asp-action="Register"><button type="button" class="btn btn-primary btn-lg">REGISTER</button></a>
         </div>
       </div>
       <div class="carousel-item">
@@ -33,8 +33,7 @@
         <p class="lead">MyScribe is a location to organize your throught/ notes/ ideas/ recources. Create ScriBoards of topics, and create Scribes relating to those topics. Enjoy Scribing!</p>
       </div>
       <div class="col-xs-12 col-sm-12 col-md-3 col-lg-3 col-xl-2">
-      <p>@Html.ActionLink("MyScribe Boards", "Index")</p>
-        @* <a href="#"><button type="button" class="btn btn-outline-secondary">MyScribe Boards</button></a> *@
+         <a class="nav-link" asp-area="" asp-controller="Boards" asp-action="Details"><button type="button" class="btn btn-outline-secondary">MyScribe Boards</button></a>
       </div>
     </div>
   </div>
@@ -43,13 +42,14 @@
   <div class="container-fluid padding">
     <div class="row padding">
       <div class="col-md-12 col-lg-6">
-        <h2>Start your own message board...</h2>
-        <p>This is a cool website where you can start a message board and start conversations with others!</p>
-        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Dignissimos labore accusamus quia eligendi rerum aut ipsam tempore fugiat unde culpa iste corrupti, ab odit harum voluptate voluptas impedit ad. Et!</p>
-        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Impedit dicta deserunt accusantium harum ut provident in hic nostrum earum laudantium odio illum et temporibus, adipisci cum eum quis culpa sapiente?</p>
-        <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Ad, illum fugit quo tenetur officiis esse qui fugiat, pariatur quae recusandae obcaecati atque veritatis blanditiis tempore numquam alias? Earum, voluptatum molestias.</p>
+        <h2>Start your own collections board...</h2>
+        <p></p>
+        One of our key features of MyScribe is creating and personalizing your own Board!</p>
+        <p>When we have new thoughts ideas or external pieces of information that we want to keep near and dear to us its easy to mistakenly scatter this information across several notebooks, browser bookmarks, or simply just lie to ourselves that we'll remember it. We want to create something that helps all of us to keep better track, and have better access, to what we want to keep in reach.</p>
+        <p>MyScribe is an organizational feature that can store links, images, or blocks of text. Create a recipe board that links to all your favorite recipe's. Create a workouts board, where each post includes an article and photo of the workout, and write notes of key points on form that you want to remember. You could make a board for App ideas, a board for dream cars, a board for resume pieces. The possibilities are endless with MyScribe, and it will keep all your important boards in one place. </p>
         <br>
-        <a class="btn btn-primary" asp-area="" asp-controller="Boards" asp-action="Details">Learn More</a>
+        @* <a class="btn btn-primary" asp-area="" asp-controller="Boards" asp-action="Details">Learn More</a> *@
+        <a class="btn btn-primary" href="https://myspace.com/" target="_blank">Learn More</a>
       </div>
       <div class="col-lg-6">
         <img src="./img/startboard.jpeg" class="img-fluid">
@@ -97,8 +97,8 @@
           <img class="card=imd-top" src="./img/jamesprofile.jpg">
           <div class="card-body">
             <h4 class="card-title">James Tlaloc</h4>
-            <p class="card-text">Lorem ipsum dolor sit amet consectetur adipisicing elit. Sit nostrum porro placeat similique veniam voluptatum hic, explicabo earum, impedit sunt quam adipisci in eveniet, voluptatibus voluptatem animi aspernatur! Rerum, corporis!</p>
-            <a href="#" class="btn btn-outline-secondary">See Profile</a>
+            <p class="card-text">After coding for a couple of months, James is now a hackerman. He uses his new profound skills to make cool websites and secretly add cat photos throughout them to entertain people.</p>
+            <a href="https://www.linkedin.com/in/jonathancarlos21/" class="btn btn-outline-secondary" target="_blank">See Profile</a>
           </div>
         </div>
       </div>
@@ -107,18 +107,18 @@
           <img class="card=imd-top" src="./img/keturahprofile.jpeg">
           <div class="card-body">
             <h4 class="card-title">Keturah Howard</h4>
-            <p class="card-text">Lorem ipsum dolor sit amet consectetur adipisicing elit. Corporis consequuntur aspernatur consectetur nobis quasi illum, a explicabo dolore cumque sapiente aliquid in inventore illo? Ullam nesciunt quisquam nemo optio repudiandae!</p>
-            <a href="#" class="btn btn-outline-secondary">See Profile</a>
+            <p class="card-text">Self growth has always been my jam- As a goal oriented individual I find great comfort in knowing that no matter where I may be now, as long as I'm working towards my goals I am moving upward. Todays goals are to be awesome at coding, tomorrow's is to build something extremely helpful with that code!</p>
+            <a href="https://www.linkedin.com/in/keturah-howard-dev/" class="btn btn-outline-secondary" target="_blank">See Profile</a>
           </div>
         </div>
       </div>
       <div class="col-md-3">
         <div class="card">
-          <img class="card=imd-top" src="./img/toddprofile.jpeg">
+          <img class="card=imd-top" src="./img/hackerman.gif">
           <div class="card-body">
             <h4 class="card-title">Todd Walraven</h4>
             <p class="card-text">Lorem ipsum dolor sit amet consectetur, adipisicing elit. Doloribus similique natus non rerum dignissimos exercitationem molestias aliquid itaque vero, id consequatur veritatis modi sint in velit et? Dolores, fugiat ullam.</p>
-            <a href="#" class="btn btn-outline-secondary">See Profile</a>
+            <a href="https://www.linkedin.com/in/todd-walraven/" class="btn btn-outline-secondary" target="_blank">See Profile</a>
           </div>
         </div>
       </div>
@@ -128,7 +128,7 @@
           <div class="card-body">
             <h4 class="card-title">Jose Amesquita</h4>
             <p class="card-text">Lorem ipsum dolor sit amet consectetur, adipisicing elit. Distinctio doloremque et molestiae? Consectetur sapiente in est repellat nisi voluptatibus soluta molestiae dolor quas laborum sunt quibusdam reiciendis atque, omnis dignissimos.</p>
-            <a href="#" class="btn btn-outline-secondary">See Profile</a>
+            <a href="https://www.linkedin.com/in/joseamesquita/" class="btn btn-outline-secondary" target="_blank">See Profile</a>
           </div>
         </div>
       </div>

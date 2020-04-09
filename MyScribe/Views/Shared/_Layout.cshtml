@@ -32,9 +32,6 @@
           <li class="nav-item">
             <a class="nav-link" asp-area="" asp-controller="Boards" asp-action="Index">Boards</a>
           </li>
-          @* <li class="nav-item">
-            <a class="nav-link" asp-area="" asp-controller="Posts" asp-action="Index">Posts</a>
-          </li> *@
           <li class="nav-item">
             <a class="nav-link" asp-area="" asp-controller="Account" asp-action="Index">Account</a>
           </li>
@@ -44,7 +41,7 @@
           @if(User.Identity.IsAuthenticated)
           {
           <li class="nav-item">
-          <a class="nav-link" asp-area="" asp-controller="Home" asp-action="Index">Log Out</a>
+          <a class="nav-link" asp-area="" asp-controller="Account" asp-action="LogOff">Log Out</a>
           </li>
           }
           else
@@ -68,7 +65,7 @@
     <div class="container-fluid padding">
       <div class="row text-center">
         <div class="col-md-4">
-          <a class="navbar-brand" asp-area="" asp-controller="Home" asp-action="Index"><img src="./img/logo2.png"></a>
+          <a class="navbar-brand" asp-area="" asp-controller="Home" asp-action="Index"><img src="~/img/logo2.png"></a>
           <hr class="light">
           <p>(123) 456-7890</p>
           <p>companyemail@email.com</p>
