@@ -2,8 +2,12 @@
 
 <div class="row">
   <div class="col-md-6 offset-md-3">
+  <div class="jumbotron">
+    <div class="container">
     <h1 class="text-center">Edit Scribe</h1>
-    view bag = @ViewBag.BoardId
+    </div>
+  </div>
+    @* view bag = @ViewBag.BoardId *@
     @using (Html.BeginForm())
     {
       @Html.HiddenFor(model => model.PostId)
@@ -14,15 +18,14 @@
       </div>
       <div class="form-group">
         <p>Text Body</p>
-        <textarea rows = "5" cols = "60" name ="Body">
+        <textarea rows = "5" cols = "60" name ="Body" class="form-control">
         </textarea>
       </div>
       <div class="form-group">
-        <p>pin to top:</p>
-        @Html.CheckBox("Pin", false)
+        <p>Pin your Scribe to the top check box here: @Html.CheckBox("Pin", false)</p>
       </div>
       <div class="form-group">
-        <p>Picture</p>
+        <p>Post the Picture Link Here</p>
         @Html.TextBoxFor(model => model.ImageSource, new {@class="form-control"})
       </div>
       <button type="submit" class="btn btn-info btn-block"> Edit a Post </button>

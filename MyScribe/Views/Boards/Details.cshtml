@@ -1,18 +1,18 @@
 <link href="~/css/styles.css" rel="stylesheet">
 <link href="~/css/styles2.css" rel="stylesheet">
 
-<div style="background-color: @Model.Color">
+@* <div style="background-color: @Model.Color"> *@
   <div class="banner--box">
     <div class="banner--img-box">
       <img src="@Model.BannerImage" alt="Banner" class="banner--img">
     </div>
   </div>
-  <h2>
+  <h2 style="border: 10px solid @Model.Color">
     @Model.Name:
     <small class="text-muted">@Model.Description</small>
-    <hr>
   </h2>
 
+    <hr>
 
   @if(Model.Posts.Count == 0)
   {
@@ -23,42 +23,80 @@
     <div class="row">
       @foreach(Post post in ViewBag.Posts)
       {
-        @if(post.ImageSource != null)
+        @if(post.Pin == true)
         {
-          <div class="col-md-4">
-            <div class="card">
-              <img class="card-img-top img-fluid" src="@post.ImageSource" alt="Card image cap">
-              <div class="card-block">
-                <h3 class="card-title" id="title">@Html.ActionLink($"{post.Title}", "Details", "Posts", new {id = post.PostId})</h3>
-                <br>
-                <p class="card-text"><span style="display:block;text-overflow: ellipsis;width: 230px;overflow: hidden; white-space: nowrap;">@post.Body</span></p>
+          @if(post.ImageSource != null)
+          {
+            <div class="col-md-4">
+              <div class="card" style="border: 10px solid @Model.Color; background-image: linear-gradient(to right top, #cbd8ec, #85edff, #00ffef, #7dff96, #fbff00);">
+              
+                <img class="card-img-top" src="@post.ImageSource" alt="Card image cap">
+              
+                <div class="card-block">
+                  <h3 class="card-title" id="title">@Html.ActionLink($"{post.Title}", "Details", "Posts", new {id = post.PostId})</h3>
+                  <br>
+                  <p class="card-text"><span style="display:block;text-overflow: ellipsis;width: 230px;overflow: hidden; white-space: nowrap;">@post.Body</span></p>
+                </div>
               </div>
             </div>
-          </div>
-        <hr>
+          <hr>
+          }
+          else
+          {
+            <div class="col-md-4">
+              <div class="card" style="border: 10px solid @Model.Color; background-image: linear-gradient(to right top, #cbd8ec, #85edff, #00ffef, #7dff96, #fbff00);">
+              <img class="card-img-top" src="https://i.pinimg.com/736x/4c/a8/bb/4ca8bb27f9a02734b9ac392713a28c11.jpg" style="opacity: 0.5" alt="Card image cap">
+                <div class="card-block">
+                  <h3 class="card-title" >@Html.ActionLink($"{post.Title}", "Details", "Posts", new {id = post.PostId})</h3>
+                  <p class="card-text"><span style="display:block;text-overflow: ellipsis;width: 230px;overflow: hidden; white-space: nowrap;">@post.Body</span></p>
+                </div>
+              </div>
+            </div>
+            <hr>
+          } 
         }
         else
         {
-          <div class="col-md-4">
-            <div class="card">
-              <div class="card-block">
-                <h3 class="card-title">@Html.ActionLink($"{post.Title}", "Details", "Posts", new {id = post.PostId})</h3>
-                <p class="card-text">@post.Body</p>
+          @if(post.ImageSource != null)
+          {
+            <div class="col-md-4">
+              <div class="card" style="border: 10px solid @Model.Color">
+                <img class="card-img-top img-fluid" src="@post.ImageSource" alt="Card image cap">
+                <div class="card-block">
+                  <h3 class="card-title" id="title">@Html.ActionLink($"{post.Title}", "Details", "Posts", new {id = post.PostId})</h3>
+                  <br>
+                  <p class="card-text"><span style="display:block;text-overflow: ellipsis;width: 230px;overflow: hidden; white-space: nowrap;">@post.Body</span></p>
+                </div>
               </div>
             </div>
-          </div>
           <hr>
-        } 
+          }
+          else
+          {
+            <div class="col-md-4">
+              <div class="card" style="border: 10px solid @Model.Color">
+              <img class="card-img-top" src="https://i.pinimg.com/736x/4c/a8/bb/4ca8bb27f9a02734b9ac392713a28c11.jpg" style="opacity: 0.5" alt="Card image cap">
+                <div class="card-block">
+                  <h3 class="card-title" >@Html.ActionLink($"{post.Title}", "Details", "Posts", new {id = post.PostId})</h3>
+                  <p class="card-text">@post.Body</p>
+                </div>
+              </div>
+            </div>
+            <hr>
+          } 
+
+        }
       }
       </div>
   }
 
-  
+<hr>  
   @Html.ActionLink("Add Scribe", "Create", "Posts", new {id = Model.BoardId}, new {@class="btn btn-success"})
   @Html.ActionLink("Edit", "Edit", new {id = Model.BoardId}, new {@class="btn btn-secondary"})
   @Html.ActionLink("Delete this Board", "Delete", new {id = Model.BoardId}, new {@class="btn btn-danger"})
   @Html.ActionLink("Back to Boards", "Index", "Boards", null, new {@class="btn btn-info"})
-</div>
+@* </div>
+ *@</div>
 
 
 

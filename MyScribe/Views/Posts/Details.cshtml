@@ -1,18 +1,30 @@
-<h1>@Model.Title</h1>
 
-@if(Model.Body != null)
-{
-  <p>@Model.Body</p>
-}
-@if(Model.Link != null)
-{
-  <p>@Model.Link</p>
-}
-@if(Model.ImageSource != null)
-{
-  <img src="@Model.ImageSource" alt="Scribe Image"/>
-}
-  
+<div class="container" style='background-image: url("https://i.pinimg.com/736x/4c/a8/bb/4ca8bb27f9a02734b9ac392713a28c11.jpg"); opacity: 1.0 ;background-repeat: no-repeat; background-size:cover'>
+  <div style="opacity: 1.0">
+    <div style="background:transparent !important" class="jumbotron">
+      <h1>@Model.Title</h1>
+    </div>
+
+    @if(Model.Body != null)
+    {
+      <h3 class="text-left">Notes:</h3>
+      <p>@Model.Body</p>
+    }
+    @if(Model.Link != null)
+    {
+      <h3 class="text-left">Reference:</h3>
+      <a href="@Model.Link">@Model.Link</a>
+      <br>
+    }
+    @if(Model.ImageSource != null)
+    {
+      <img src="@Model.ImageSource" alt="Scribe Image"/>
+    }
+
+  </div>
+</div>
+ <br>
+  <hr>
 @Html.ActionLink("Back to ScriBoard", "Details", "Boards", new {id = Model.BoardId}, new {@class="btn btn-info"})
-@Html.ActionLink("Edit", "Edit", null, new {id = Model.PostId}, new {@class="btn btn-info"})
+@Html.ActionLink("Edit", "Edit", null, new {id = Model.PostId}, new {@class="btn btn-secondary"})
 @Html.ActionLink("Delete this Post", "Delete", new {id = Model.PostId}, new {@class="btn btn-danger"})

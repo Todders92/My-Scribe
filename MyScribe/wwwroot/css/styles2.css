@@ -6,6 +6,12 @@
   align-items: center;
   justify-content: center;
  }
+
+ .card-img-top {
+  width: 100%;
+  height: 11vw;
+  object-fit: cover;
+}
  
  .banner--img-box {
    height: 500px;
@@ -16,12 +22,13 @@
  .banner--img {
    margin: auto;
    display: block;
+   margin-top: 50px;
    width: 100%;
  }
 
- body{
-   /* background-color: aqua; */
- }
+ /* body{
+   background-color: aqua;
+ } */
 
  .jumbotron-billboard .img {
   margin-bottom: 0px;
@@ -55,6 +62,6 @@ z-index:2;
 }
 }
 
-/* .card-block {
-  background-color: rgb(211, 211, 211);
-} */
+.delete-page {
+  align-items: center;
+}

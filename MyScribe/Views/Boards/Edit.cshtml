@@ -1,37 +1,35 @@
-@{
+@* @{
   Layout = "_Layout";
-}
+} *@
 
 @model MyScribe.Models.Board
-
-<h2>Edit</h2>
-
-<h4>Edit this Board: @Html.DisplayFor(model => model.Name)</h4>
-
+<div class="jumbotron">
+  <h1>Edit @Html.DisplayFor(model => model.Name)</h1>
+</div>
 @using (Html.BeginForm())
 {
     @Html.HiddenFor(model => model.BoardId)
 
     <div class="form-group">
-      @Html.LabelFor(model => model.Name)
+      @Html.LabelFor(model => model.Name):
       @Html.EditorFor(model => model.Name)
     </div>
 
     <div class="form-group">
-      @Html.LabelFor(model => model.Description)
+      @Html.LabelFor(model => model.Description):
       @Html.EditorFor(model => model.Description)
     </div>
 
     <div class="form-group">
-      @Html.LabelFor(model => model.BannerImage)
+      @Html.LabelFor(model => model.BannerImage):
       @Html.EditorFor(model => model.BannerImage)
     </div>
 
     <div class="form-group">
-      <label for="color">ScriBoard Color</label>
+      <label for="color">ScriBoard Color:</label>
       <input id="color" name="Color" type="color">
     </div>
 
-    <input type="submit" value="Save" />
+    <input type="submit" value="Save" class="btn btn-warning"/>
 }
-<p>@Html.ActionLink("Back to boards", "Index")</p>
+<p>@Html.ActionLink("Back to Board", "Details", new {id = Model.BoardId}, new {@class="btn btn-info"} )</p>

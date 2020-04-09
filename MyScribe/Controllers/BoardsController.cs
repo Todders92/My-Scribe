@@ -68,7 +68,7 @@ namespace MyScribe.Controllers
     {
       _db.Entry(board).State = EntityState.Modified;
       _db.SaveChanges();
-      return RedirectToAction("Index");
+      return RedirectToAction("Details", new {id= board.BoardId});
     }
 
     public ActionResult Delete(int id)

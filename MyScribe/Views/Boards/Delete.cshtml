@@ -1,3 +1,6 @@
+<link href="~/css/styles.css" rel="stylesheet">
+<link href="~/css/styles2.css" rel="stylesheet">
+
 @{
   Layout = "_Layout";
 }
@@ -7,8 +10,11 @@
 <h2>Are you sure you want to delete this Board?</h2>
 
 @Html.DisplayNameFor(model => model.Name): @Html.DisplayFor(model => model.Name)
+<hr>
 @using (Html.BeginForm())
 {
-    <input type="submit" value="Delete" />
+    <input type="submit" value="Delete" class="btn btn-danger"/>
+
+    @Html.ActionLink("Back to ScriBoard", "Index", "Boards", new {id = Model.BoardId}, new {@class="btn btn-info"})
 }
-@Html.ActionLink("Back to Boards", "Index")
+
