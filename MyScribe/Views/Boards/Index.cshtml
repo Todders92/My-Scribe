@@ -1,18 +1,31 @@
-@{
-  Layout = "_Layout";
-}
 
 @using MyScribe.Models
 @using System.Security.Claims
 @model IEnumerable<MyScribe.Models.Board>
-
-<h1>Boards</h1>
+@* 
+<h1 class="jumbotron">Boards</h1> *@
+<div class="jumbotron jumbotron-billboard">
+  <div class="img"></div>
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-12">
+              <h2>Welcome to MyScribe Boards</h2>
+                <p>
+                    Below you can create a new board and add posts to your board. 
+                </p>
+            </div>
+        </div>
+    </div>
+</div>
 
 @if (@Model.Any())
 {
   @foreach (Board boards in Model)
   {
-    <p>@Html.ActionLink($"{boards.Name}", "Details", null, new { id = boards.BoardId }, new {@class="btn btn-dark"})</p>
+    <div class="row">
+      <p>@Html.ActionLink($"{boards.Name}", "Details", null, new { id = boards.BoardId }, new {@class="btn btn-primary"}) <span style="display:block;text-overflow: ellipsis;width: 200px;overflow: hidden; white-space: nowrap;"> @Html.ActionLink($"{boards.Description}", "Details", null, new { id = boards.BoardId })</span></p>
+    </div>
+
   }
 } 
 else
@@ -21,6 +34,7 @@ else
 }
 <hr>
 
-@Html.ActionLink("Add a new board", "Create", null, null, new {@class = "btn btn-info"})
+@Html.ActionLink("Add a new board", "Create", null, null, new {@class = "btn btn-primary"})
+<br>
 
 @* @Html.ActionLink("Home", "Index", "Home", null, new {@class = "btn btn-info"}) *@

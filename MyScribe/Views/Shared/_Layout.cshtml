@@ -9,14 +9,15 @@
   <script src="https://cdnjs.cloudflare.com/ajax/libs/popper/js/1.12.9/umd/popper.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
   <script src="https://use.fontawesome.com/releases/v5.0.8/js/all.js"></script>
-  <link href="./css/styles.css" rel="stylesheet">
+  <link href="~/css/styles.css" rel="stylesheet">
+  <link href="~/css/styles2.css" rel="stylesheet">
 </head>
 <body>
 
 <!-- Navigation -->
   <nav class="navbar navbar-expand-md navbar-light bg-light sticky-top">
     <div class="container-fluid">
-      <a class="navbar-brand" asp-area="" asp-controller="Home" asp-action="Index"><img class="logo" src="./img/logo.png"></a>
+      <a class="navbar-brand" asp-area="" asp-controller="Home" asp-action="Index"><img class="logo" src="~/img/logo.png"></a>
       <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive">
         <span class="navbar-toggler-icon"></span>
       </button>
@@ -31,9 +32,6 @@
           <li class="nav-item">
             <a class="nav-link" asp-area="" asp-controller="Boards" asp-action="Index">Boards</a>
           </li>
-          @* <li class="nav-item">
-            <a class="nav-link" asp-area="" asp-controller="Posts" asp-action="Index">Posts</a>
-          </li> *@
           <li class="nav-item">
             <a class="nav-link" asp-area="" asp-controller="Account" asp-action="Index">Account</a>
           </li>
@@ -43,7 +41,7 @@
           @if(User.Identity.IsAuthenticated)
           {
           <li class="nav-item">
-          <a class="nav-link" asp-area="" asp-controller="Home" asp-action="Index">Log Out</a>
+          <a class="nav-link" asp-area="" asp-controller="Account" asp-action="LogOff">Log Out</a>
           </li>
           }
           else
@@ -61,12 +59,13 @@
 <div class="container text-center">
   @RenderBody()
 </div>
+<br>
 <!-- Footer -->
   <footer>
     <div class="container-fluid padding">
       <div class="row text-center">
         <div class="col-md-4">
-          <a class="navbar-brand" asp-area="" asp-controller="Home" asp-action="Index"><img src="./img/logo2.png"></a>
+          <a class="navbar-brand" asp-area="" asp-controller="Home" asp-action="Index"><img src="~/img/logo2.png"></a>
           <hr class="light">
           <p>(123) 456-7890</p>
           <p>companyemail@email.com</p>

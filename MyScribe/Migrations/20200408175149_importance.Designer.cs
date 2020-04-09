@@ -2,15 +2,17 @@
 using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using MyScribe.Models;
 
 namespace MyScribe.Migrations
 {
     [DbContext(typeof(MyScribeContext))]
-    partial class MyScribeContextModelSnapshot : ModelSnapshot
+    [Migration("20200408175149_importance")]
+    partial class importance
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -207,9 +209,9 @@ namespace MyScribe.Migrations
 
                     b.Property<string>("ImageSource");
 
-                    b.Property<string>("Link");
+                    b.Property<int>("Importance");
 
-                    b.Property<bool>("Pin");
+                    b.Property<string>("Link");
 
                     b.Property<string>("Title");
 

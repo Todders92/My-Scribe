@@ -9,12 +9,16 @@
         @Html.TextBoxFor(model => model.Name, new {@class="form-control"})
       </div>
       <div class="form-group">
-        <p>DeSCRIBE the SCRIBoard! (bdm tsss~)</p>
+        <p>DeSCRIBE the SCRIBoard! (badum tsss~)</p>
         @Html.TextBoxFor(model => model.Description, new {@class="form-control"})
       </div>
       <div class="form-group">
         <p>ScriBoard Banner Image (user image address)</p>
         @Html.TextBoxFor(model => model.BannerImage, new {@class="form-control"})
+      </div>
+      <div class="form-group">
+        <label for="color">ScriBoard Color</label>
+        <input id="color" name="Color" type="color">
       </div>
       <button type="submit" class="btn btn-info btn-block"> Add a Board </button>
     }

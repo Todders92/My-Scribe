@@ -6,7 +6,6 @@
     view bag = @ViewBag.BoardId
     @using (Html.BeginForm())
     {
-      @* <input type="hidden" name="BoardId" value="@ViewBag.BoardId"> *@
       @Html.HiddenFor(model => model.PostId)
       @Html.HiddenFor(model => model.BoardId)
       <div class="form-group">
@@ -14,8 +13,13 @@
         @Html.TextBoxFor(model => model.Title, new {@class="form-control"})
       </div>
       <div class="form-group">
-        <p>Post Body</p>
-        @Html.TextBoxFor(model => model.Body, new {@class="form-control"})
+        <p>Text Body</p>
+        <textarea rows = "5" cols = "60" name ="Body">
+        </textarea>
+      </div>
+      <div class="form-group">
+        <p>pin to top:</p>
+        @Html.CheckBox("Pin", false)
       </div>
       <div class="form-group">
         <p>Picture</p>
