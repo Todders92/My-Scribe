@@ -13,11 +13,11 @@ This is a teamweek project done to showcase the skills we learned through the Ep
 ## Preview
 
 <p align="center">
-  <img src="~/img/SS1.png">
-	<img src="~/img/SS2.png">
-	<img src="~/img/SS3.png">
-	<img src="~/img/SS4.png">
-	<img src="~/img/SS5.png">
+  <img src="/img/SS1.png">
+	<img src="./img/SS2.png">
+	<img src="./img/SS3.png">
+	<img src="./img/SS4.png">
+	<img src="./img/SS5.png">
 </p>
 	
 ## Specifications 
