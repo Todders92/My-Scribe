@@ -2,12 +2,11 @@
 
 <div class="row">
   <div class="col-md-6 offset-md-3">
-  <div class="jumbotron">
-    <div class="container">
-    <h1 class="text-center">Edit Scribe</h1>
+    <div class="jumbotron">
+      <div class="container">
+      <h1 class="text-center">Edit Scribe</h1>
+      </div>
     </div>
-  </div>
-    @* view bag = @ViewBag.BoardId *@
     @using (Html.BeginForm())
     {
       @Html.HiddenFor(model => model.PostId)
@@ -19,16 +18,26 @@
       <div class="form-group">
         <p>Text Body</p>
         <textarea rows = "5" cols = "60" name ="Body" class="form-control">
+          @Model.Body
         </textarea>
       </div>
       <div class="form-group">
-        <p>Pin your Scribe to the top check box here: @Html.CheckBox("Pin", false)</p>
+        <p>Pin your Scribe to the top? @Html.CheckBox("Pin", false)</p>
       </div>
       <div class="form-group">
-        <p>Post the Picture Link Here</p>
+        <p>Picture Link</p>
         @Html.TextBoxFor(model => model.ImageSource, new {@class="form-control"})
       </div>
-      <button type="submit" class="btn btn-info btn-block"> Edit a Post </button>
+      <div class="form-group">
+        <p>Rescource Link</p>
+        @Html.TextBoxFor(model => model.Link, new {@class="form-control"})
+      </div>
+      <button type="submit" class="btn btn-info btn-block">Save</button>
     }
+  <br>
+  <p>@Html.ActionLink("Back to Post", "Details", new {id = Model.PostId}, new {@class="btn btn-dark btn-block"} )</p>
   </div>
+
+
 </div>
+

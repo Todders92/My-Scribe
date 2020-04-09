@@ -9,9 +9,13 @@
     <div class="container">
         <div class="row">
             <div class="col-lg-12">
-              <h2>Welcome to MyScribe Boards</h2>
-                <p>
+              <h1>Your ScriBoards</h1>
+                @* <p>
                     Below you can create a new board and add posts to your board. 
+                </p> *@
+                <p>@Html.ActionLink("Add a new board", "Create", null, null, new {@class = "btn btn-outline-secondary"})</p>
+                <p>
+                    Ideas to get you started: School Resources | Workouts | Recipes | Journal Entries 
                 </p>
             </div>
         </div>
@@ -20,20 +24,23 @@
 
 @if (@Model.Any())
 {
-  @foreach (Board boards in Model)
+  @foreach (Board board in Model)
   {
     <div class="row">
-      <p>@Html.ActionLink($"{boards.Name}", "Details", null, new { id = boards.BoardId }, new {@class="btn btn-info btn-lg"}) <span style="display:block;text-overflow: ellipsis;width: 200px;overflow: hidden; white-space: nowrap;"> </span></p>
+      <p>@Html.ActionLink($"{board.Name}", "Details", null, new { id = board.BoardId }, new {@class="btn btn-warning btn-lg"}) <span style="text-overflow: ellipsis;width: 200px;overflow: hidden; white-space: nowrap;">@board.Description</span></p>
     </div>
+    @* <div class="row">
+      <p>@Html.ActionLink($"{board.Name}", "Details", null, new { id = board.BoardId }, new {@class="btn btn-warning btn-lg"}) <span style="display:block;text-overflow: ellipsis;width: 200px;overflow: hidden; white-space: nowrap;">@board.Description</span></p>
+    </div> *@
   }
 } 
 else
 {
   <h3>You have no ScriBoards!</h3>
 }
-<hr>
+@* <hr>
 
-@Html.ActionLink("Add a new board", "Create", null, null, new {@class = "btn btn-success"})
+@Html.ActionLink("Add a new board", "Create", null, null, new {@class = "btn btn-success"}) *@
 <br>
 
 @* @Html.ActionLink("Home", "Index", "Home", null, new {@class = "btn btn-info"}) *@

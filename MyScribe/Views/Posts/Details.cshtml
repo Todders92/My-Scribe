@@ -1,30 +1,42 @@
 
-<div class="container" style='background-image: url("https://i.pinimg.com/736x/4c/a8/bb/4ca8bb27f9a02734b9ac392713a28c11.jpg"); opacity: 1.0 ;background-repeat: no-repeat; background-size:cover'>
-  <div style="opacity: 1.0">
-    <div style="background:transparent !important" class="jumbotron">
-      <h1>@Model.Title</h1>
-    </div>
-
-    @if(Model.Body != null)
-    {
-      <h3 class="text-left">Notes:</h3>
-      <p>@Model.Body</p>
-    }
-    @if(Model.Link != null)
-    {
-      <h3 class="text-left">Reference:</h3>
-      <a href="@Model.Link">@Model.Link</a>
-      <br>
-    }
-    @if(Model.ImageSource != null)
-    {
-      <img src="@Model.ImageSource" alt="Scribe Image"/>
-    }
-
+<div class="container" style='background-image: url("https://i.pinimg.com/736x/4c/a8/bb/4ca8bb27f9a02734b9ac392713a28c11.jpg");  background-repeat: no-repeat; background-size: cover'>
+@if(Model.Pin)
+{
+  <div style="background-image: linear-gradient(to right top, #cbd8ec, #85edff, #00ffef, #7dff96, #fbff00)" class="jumbotron">
+    <h1>@Model.Title</h1>
   </div>
+}
+else
+{
+  <div style="background:transparent !important" class="jumbotron">
+    <h1>@Model.Title</h1>
+  </div>
+}
+
+  @if(Model.Body != null)
+  {
+    <h3 class="text-left">Notes:</h3>
+    <h4 style="background-color: white">@Model.Body</h4>
+  }
+  @if(Model.Link != null)
+  {
+    <h3 class="text-left">Reference:</h3>
+    <a style="background-color: white" href="@Model.Link">@Model.Link</a>
+    <br>
+  }
+  @if(Model.ImageSource != null)
+  {
+    <img src="@Model.ImageSource" alt="Scribe Image"/>
+  }
+
 </div>
  <br>
-  <hr>
-@Html.ActionLink("Back to ScriBoard", "Details", "Boards", new {id = Model.BoardId}, new {@class="btn btn-info"})
-@Html.ActionLink("Edit", "Edit", null, new {id = Model.PostId}, new {@class="btn btn-secondary"})
-@Html.ActionLink("Delete this Post", "Delete", new {id = Model.PostId}, new {@class="btn btn-danger"})
+<hr>
+<div class="row">
+  <div class="col-md-6 offset-md-3">
+    @Html.ActionLink("Back to ScriBoard", "Details", "Boards", new {id = Model.BoardId}, new {@class="btn btn-info btn-block"})
+    <br>
+    @Html.ActionLink("Edit", "Edit", null, new {id = Model.PostId}, new {@class="btn btn-secondary"})
+    @Html.ActionLink("Delete this Post", "Delete", new {id = Model.PostId}, new {@class="btn btn-danger"})
+  </div>
+</div>
