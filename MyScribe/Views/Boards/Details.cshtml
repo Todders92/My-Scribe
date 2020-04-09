@@ -1,3 +1,6 @@
+<link href="~/css/styles.css" rel="stylesheet">
+<link href="~/css/styles2.css" rel="stylesheet">
+
 <div style="background-color: @Model.Color">
   <div class="banner--box">
     <div class="banner--img-box">
@@ -26,7 +29,8 @@
             <div class="card">
               <img class="card-img-top img-fluid" src="@post.ImageSource" alt="Card image cap">
               <div class="card-block">
-                <h3 class="card-title">@Html.ActionLink($"{post.Title}", "Details", "Posts", new {id = post.PostId})</h3>
+                <h3 class="card-title" id="title">@Html.ActionLink($"{post.Title}", "Details", "Posts", new {id = post.PostId})</h3>
+                <br>
                 <p class="card-text"><span style="display:block;text-overflow: ellipsis;width: 230px;overflow: hidden; white-space: nowrap;">@post.Body</span></p>
               </div>
             </div>
@@ -49,11 +53,11 @@
       </div>
   }
 
-  @* @Html.ActionLink("Add Scribe", "Create", "Posts", new {boardId = Model.BoardId}, new {@class="btn btn-success"}) *@
-  @Html.ActionLink("Add Scribe", "Create", "Posts", new {id = Model.BoardId}, new {@class="btn btn-primary"})
-  @Html.ActionLink("Edit", "Edit", new {id = Model.BoardId}, new {@class="btn btn-primary"})
-  @Html.ActionLink("Delete this Board", "Delete", new {id = Model.BoardId}, new {@class="btn btn-primary"})
-
+  
+  @Html.ActionLink("Add Scribe", "Create", "Posts", new {id = Model.BoardId}, new {@class="btn btn-success"})
+  @Html.ActionLink("Edit", "Edit", new {id = Model.BoardId}, new {@class="btn btn-secondary"})
+  @Html.ActionLink("Delete this Board", "Delete", new {id = Model.BoardId}, new {@class="btn btn-danger"})
+  @Html.ActionLink("Back to Boards", "Index", "Boards", null, new {@class="btn btn-info"})
 </div>
 
 

@@ -37,7 +37,6 @@ html, body {
 
 .carousel-caption h1 {
   font-size: 500%;
-  text-transform: uppercase;
   text-shadow: 1px 1px 15px #000;
 }
 
@@ -127,6 +126,11 @@ html, body {
 .fa-instagram:hover,
 .fa-youtube:hover {
   color: #d5d5d5;
+}
+
+.logo2 {
+  height: 75px;
+  width: 125px;
 }
 
 footer {
